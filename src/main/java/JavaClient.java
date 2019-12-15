@@ -26,6 +26,9 @@ public class JavaClient {
 
     private static void perform(Calculator.Client client) throws TException {
         client.ping();
+        System.out.println(client.calculate(16, 32));
+        client.commParameters("hello");
+
         System.out.println("ping()");
     }
 }

@@ -18,14 +18,14 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
   private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new InvalidOperationTupleSchemeFactory();
 
   public int whatOp; // required
-  public @org.apache.thrift.annotation.Nullable String why; // required
+  public @org.apache.thrift.annotation.Nullable java.lang.String why; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
     WHAT_OP((short)1, "whatOp"),
     WHY((short)2, "why");
 
-    private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+    private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
     static {
       for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
@@ -54,7 +54,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
      */
     public static _Fields findByThriftIdOrThrow(int fieldId) {
       _Fields fields = findByThriftId(fieldId);
-      if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+      if (fields == null) throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
       return fields;
     }
 
@@ -62,14 +62,14 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
      * Find the _Fields constant that matches name, or null if its not found.
      */
     @org.apache.thrift.annotation.Nullable
-    public static _Fields findByName(String name) {
+    public static _Fields findByName(java.lang.String name) {
       return byName.get(name);
     }
 
     private final short _thriftId;
-    private final String _fieldName;
+    private final java.lang.String _fieldName;
 
-    _Fields(short thriftId, String fieldName) {
+    _Fields(short thriftId, java.lang.String fieldName) {
       _thriftId = thriftId;
       _fieldName = fieldName;
     }
@@ -78,7 +78,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
       return _thriftId;
     }
 
-    public String getFieldName() {
+    public java.lang.String getFieldName() {
       return _fieldName;
     }
   }
@@ -102,7 +102,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
 
   public InvalidOperation(
     int whatOp,
-    String why)
+    java.lang.String why)
   {
     this();
     this.whatOp = whatOp;
@@ -156,11 +156,11 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
   }
 
   @org.apache.thrift.annotation.Nullable
-  public String getWhy() {
+  public java.lang.String getWhy() {
     return this.why;
   }
 
-  public InvalidOperation setWhy(@org.apache.thrift.annotation.Nullable String why) {
+  public InvalidOperation setWhy(@org.apache.thrift.annotation.Nullable java.lang.String why) {
     this.why = why;
     return this;
   }
@@ -180,13 +180,13 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
     }
   }
 
-  public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable Object value) {
+  public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
     switch (field) {
     case WHAT_OP:
       if (value == null) {
         unsetWhatOp();
       } else {
-        setWhatOp((Integer)value);
+        setWhatOp((java.lang.Integer)value);
       }
       break;
 
@@ -194,7 +194,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
       if (value == null) {
         unsetWhy();
       } else {
-        setWhy((String)value);
+        setWhy((java.lang.String)value);
       }
       break;
 
@@ -202,7 +202,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
   }
 
   @org.apache.thrift.annotation.Nullable
-  public Object getFieldValue(_Fields field) {
+  public java.lang.Object getFieldValue(_Fields field) {
     switch (field) {
     case WHAT_OP:
       return getWhatOp();
@@ -211,13 +211,13 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
       return getWhy();
 
     }
-    throw new IllegalStateException();
+    throw new java.lang.IllegalStateException();
   }
 
   /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
   public boolean isSet(_Fields field) {
     if (field == null) {
-      throw new IllegalArgumentException();
+      throw new java.lang.IllegalArgumentException();
     }
 
     switch (field) {
@@ -226,11 +226,11 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
     case WHY:
       return isSetWhy();
     }
-    throw new IllegalStateException();
+    throw new java.lang.IllegalStateException();
   }
 
   @Override
-  public boolean equals(Object that) {
+  public boolean equals(java.lang.Object that) {
     if (that == null)
       return false;
     if (that instanceof InvalidOperation)
@@ -286,7 +286,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
 
     int lastComparison = 0;
 
-    lastComparison = Boolean.valueOf(isSetWhatOp()).compareTo(other.isSetWhatOp());
+    lastComparison = java.lang.Boolean.valueOf(isSetWhatOp()).compareTo(other.isSetWhatOp());
     if (lastComparison != 0) {
       return lastComparison;
     }
@@ -296,7 +296,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetWhy()).compareTo(other.isSetWhy());
+    lastComparison = java.lang.Boolean.valueOf(isSetWhy()).compareTo(other.isSetWhy());
     if (lastComparison != 0) {
       return lastComparison;
     }
@@ -323,8 +323,8 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
   }
 
   @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder("InvalidOperation(");
+  public java.lang.String toString() {
+    java.lang.StringBuilder sb = new java.lang.StringBuilder("InvalidOperation(");
     boolean first = true;
 
     sb.append("whatOp:");
@@ -355,7 +355,7 @@ public class InvalidOperation extends org.apache.thrift.TException implements or
     }
   }
 
-  private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+  private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
     try {
       // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
       __isset_bitfield = 0;

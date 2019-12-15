@@ -14,7 +14,7 @@ public class Calculator {
 
     public void ping() throws org.apache.thrift.TException;
 
-    public void commParameters(String message) throws org.apache.thrift.TException;
+    public void comm(java.lang.String message) throws org.apache.thrift.TException;
 
     public int calculate(int num1, int num2) throws org.apache.thrift.TException;
 
@@ -24,9 +24,9 @@ public class Calculator {
 
     public void ping(org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException;
 
-    public void commParameters(String message, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException;
+    public void comm(java.lang.String message, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException;
 
-    public void calculate(int num1, int num2, org.apache.thrift.async.AsyncMethodCallback<Integer> resultHandler) throws org.apache.thrift.TException;
+    public void calculate(int num1, int num2, org.apache.thrift.async.AsyncMethodCallback<java.lang.Integer> resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -69,23 +69,23 @@ public class Calculator {
       return;
     }
 
-    public void commParameters(String message) throws org.apache.thrift.TException
+    public void comm(java.lang.String message) throws org.apache.thrift.TException
     {
-      send_commParameters(message);
-      recv_commParameters();
+      send_comm(message);
+      recv_comm();
     }
 
-    public void send_commParameters(String message) throws org.apache.thrift.TException
+    public void send_comm(java.lang.String message) throws org.apache.thrift.TException
     {
-      commParameters_args args = new commParameters_args();
+      comm_args args = new comm_args();
       args.setMessage(message);
-      sendBase("commParameters", args);
+      sendBase("comm", args);
     }
 
-    public void recv_commParameters() throws org.apache.thrift.TException
+    public void recv_comm() throws org.apache.thrift.TException
     {
-      commParameters_result result = new commParameters_result();
-      receiveBase(result, "commParameters");
+      comm_result result = new comm_result();
+      receiveBase(result, "comm");
       return;
     }
 
@@ -151,8 +151,8 @@ public class Calculator {
       }
 
       public Void getResult() throws org.apache.thrift.TException {
-        if (getState() != State.RESPONSE_READ) {
-          throw new IllegalStateException("Method call not finished!");
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new java.lang.IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
@@ -160,31 +160,31 @@ public class Calculator {
       }
     }
 
-    public void commParameters(String message, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
+    public void comm(java.lang.String message, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
       checkReady();
-      commParameters_call method_call = new commParameters_call(message, resultHandler, this, ___protocolFactory, ___transport);
+      comm_call method_call = new comm_call(message, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class commParameters_call extends org.apache.thrift.async.TAsyncMethodCall<Void> {
-      private String message;
-      public commParameters_call(String message, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+    public static class comm_call extends org.apache.thrift.async.TAsyncMethodCall<Void> {
+      private java.lang.String message;
+      public comm_call(java.lang.String message, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.message = message;
       }
 
       public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("commParameters", org.apache.thrift.protocol.TMessageType.CALL, 0));
-        commParameters_args args = new commParameters_args();
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("comm", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        comm_args args = new comm_args();
         args.setMessage(message);
         args.write(prot);
         prot.writeMessageEnd();
       }
 
       public Void getResult() throws org.apache.thrift.TException {
-        if (getState() != State.RESPONSE_READ) {
-          throw new IllegalStateException("Method call not finished!");
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new java.lang.IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
@@ -192,17 +192,17 @@ public class Calculator {
       }
     }
 
-    public void calculate(int num1, int num2, org.apache.thrift.async.AsyncMethodCallback<Integer> resultHandler) throws org.apache.thrift.TException {
+    public void calculate(int num1, int num2, org.apache.thrift.async.AsyncMethodCallback<java.lang.Integer> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       calculate_call method_call = new calculate_call(num1, num2, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
-    public static class calculate_call extends org.apache.thrift.async.TAsyncMethodCall<Integer> {
+    public static class calculate_call extends org.apache.thrift.async.TAsyncMethodCall<java.lang.Integer> {
       private int num1;
       private int num2;
-      public calculate_call(int num1, int num2, org.apache.thrift.async.AsyncMethodCallback<Integer> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      public calculate_call(int num1, int num2, org.apache.thrift.async.AsyncMethodCallback<java.lang.Integer> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.num1 = num1;
         this.num2 = num2;
@@ -217,9 +217,9 @@ public class Calculator {
         prot.writeMessageEnd();
       }
 
-      public Integer getResult() throws org.apache.thrift.TException {
-        if (getState() != State.RESPONSE_READ) {
-          throw new IllegalStateException("Method call not finished!");
+      public java.lang.Integer getResult() throws org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new java.lang.IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
@@ -232,16 +232,16 @@ public class Calculator {
   public static class Processor<I extends Iface> extends org.apache.thrift.TBaseProcessor<I> implements org.apache.thrift.TProcessor {
     private static final org.slf4j.Logger _LOGGER = org.slf4j.LoggerFactory.getLogger(Processor.class.getName());
     public Processor(I iface) {
-      super(iface, getProcessMap(new java.util.HashMap<String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>>()));
+      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>>()));
     }
 
-    protected Processor(I iface, java.util.Map<String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> processMap) {
+    protected Processor(I iface, java.util.Map<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> processMap) {
       super(iface, getProcessMap(processMap));
     }
 
-    private static <I extends Iface> java.util.Map<String,  org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> getProcessMap(java.util.Map<String, org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> processMap) {
+    private static <I extends Iface> java.util.Map<java.lang.String,  org.apache.thrift.ProcessFunction<I, ? extends org.apache.thrift.TBase>> getProcessMap(java.util.Map<java.lang.String, org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> processMap) {
       processMap.put("ping", new ping());
-      processMap.put("commParameters", new commParameters());
+      processMap.put("comm", new comm());
       processMap.put("calculate", new calculate());
       return processMap;
     }
@@ -271,13 +271,13 @@ public class Calculator {
       }
     }
 
-    public static class commParameters<I extends Iface> extends org.apache.thrift.ProcessFunction<I, commParameters_args> {
-      public commParameters() {
-        super("commParameters");
+    public static class comm<I extends Iface> extends org.apache.thrift.ProcessFunction<I, comm_args> {
+      public comm() {
+        super("comm");
       }
 
-      public commParameters_args getEmptyArgsInstance() {
-        return new commParameters_args();
+      public comm_args getEmptyArgsInstance() {
+        return new comm_args();
       }
 
       protected boolean isOneway() {
@@ -289,9 +289,9 @@ public class Calculator {
         return false;
       }
 
-      public commParameters_result getResult(I iface, commParameters_args args) throws org.apache.thrift.TException {
-        commParameters_result result = new commParameters_result();
-        iface.commParameters(args.message);
+      public comm_result getResult(I iface, comm_args args) throws org.apache.thrift.TException {
+        comm_result result = new comm_result();
+        iface.comm(args.message);
         return result;
       }
     }
@@ -327,16 +327,16 @@ public class Calculator {
   public static class AsyncProcessor<I extends AsyncIface> extends org.apache.thrift.TBaseAsyncProcessor<I> {
     private static final org.slf4j.Logger _LOGGER = org.slf4j.LoggerFactory.getLogger(AsyncProcessor.class.getName());
     public AsyncProcessor(I iface) {
-      super(iface, getProcessMap(new java.util.HashMap<String, org.apache.thrift.AsyncProcessFunction<I, ? extends org.apache.thrift.TBase, ?>>()));
+      super(iface, getProcessMap(new java.util.HashMap<java.lang.String, org.apache.thrift.AsyncProcessFunction<I, ? extends org.apache.thrift.TBase, ?>>()));
     }
 
-    protected AsyncProcessor(I iface, java.util.Map<String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
+    protected AsyncProcessor(I iface, java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
       super(iface, getProcessMap(processMap));
     }
 
-    private static <I extends AsyncIface> java.util.Map<String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase,?>> getProcessMap(java.util.Map<String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
+    private static <I extends AsyncIface> java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase,?>> getProcessMap(java.util.Map<java.lang.String,  org.apache.thrift.AsyncProcessFunction<I, ? extends  org.apache.thrift.TBase, ?>> processMap) {
       processMap.put("ping", new ping());
-      processMap.put("commParameters", new commParameters());
+      processMap.put("comm", new comm());
       processMap.put("calculate", new calculate());
       return processMap;
     }
@@ -360,12 +360,12 @@ public class Calculator {
             } catch (org.apache.thrift.transport.TTransportException e) {
               _LOGGER.error("TTransportException writing to internal frame buffer", e);
               fb.close();
-            } catch (Exception e) {
+            } catch (java.lang.Exception e) {
               _LOGGER.error("Exception writing to internal frame buffer", e);
               onError(e);
             }
           }
-          public void onError(Exception e) {
+          public void onError(java.lang.Exception e) {
             byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
             org.apache.thrift.TSerializable msg;
             ping_result result = new ping_result();
@@ -384,7 +384,7 @@ public class Calculator {
             }
             try {
               fcall.sendResponse(fb,msg,msgType,seqid);
-            } catch (Exception ex) {
+            } catch (java.lang.Exception ex) {
               _LOGGER.error("Exception writing to internal frame buffer", ex);
               fb.close();
             }
@@ -401,34 +401,34 @@ public class Calculator {
       }
     }
 
-    public static class commParameters<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, commParameters_args, Void> {
-      public commParameters() {
-        super("commParameters");
+    public static class comm<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, comm_args, Void> {
+      public comm() {
+        super("comm");
       }
 
-      public commParameters_args getEmptyArgsInstance() {
-        return new commParameters_args();
+      public comm_args getEmptyArgsInstance() {
+        return new comm_args();
       }
 
       public org.apache.thrift.async.AsyncMethodCallback<Void> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
         return new org.apache.thrift.async.AsyncMethodCallback<Void>() { 
           public void onComplete(Void o) {
-            commParameters_result result = new commParameters_result();
+            comm_result result = new comm_result();
             try {
               fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
             } catch (org.apache.thrift.transport.TTransportException e) {
               _LOGGER.error("TTransportException writing to internal frame buffer", e);
               fb.close();
-            } catch (Exception e) {
+            } catch (java.lang.Exception e) {
               _LOGGER.error("Exception writing to internal frame buffer", e);
               onError(e);
             }
           }
-          public void onError(Exception e) {
+          public void onError(java.lang.Exception e) {
             byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
             org.apache.thrift.TSerializable msg;
-            commParameters_result result = new commParameters_result();
+            comm_result result = new comm_result();
             if (e instanceof org.apache.thrift.transport.TTransportException) {
               _LOGGER.error("TTransportException inside handler", e);
               fb.close();
@@ -444,7 +444,7 @@ public class Calculator {
             }
             try {
               fcall.sendResponse(fb,msg,msgType,seqid);
-            } catch (Exception ex) {
+            } catch (java.lang.Exception ex) {
               _LOGGER.error("Exception writing to internal frame buffer", ex);
               fb.close();
             }
@@ -456,12 +456,12 @@ public class Calculator {
         return false;
       }
 
-      public void start(I iface, commParameters_args args, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
-        iface.commParameters(args.message,resultHandler);
+      public void start(I iface, comm_args args, org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler) throws org.apache.thrift.TException {
+        iface.comm(args.message,resultHandler);
       }
     }
 
-    public static class calculate<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, calculate_args, Integer> {
+    public static class calculate<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, calculate_args, java.lang.Integer> {
       public calculate() {
         super("calculate");
       }
@@ -470,10 +470,10 @@ public class Calculator {
         return new calculate_args();
       }
 
-      public org.apache.thrift.async.AsyncMethodCallback<Integer> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+      public org.apache.thrift.async.AsyncMethodCallback<java.lang.Integer> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
         final org.apache.thrift.AsyncProcessFunction fcall = this;
-        return new org.apache.thrift.async.AsyncMethodCallback<Integer>() {
-          public void onComplete(Integer o) {
+        return new org.apache.thrift.async.AsyncMethodCallback<java.lang.Integer>() { 
+          public void onComplete(java.lang.Integer o) {
             calculate_result result = new calculate_result();
             result.success = o;
             result.setSuccessIsSet(true);
@@ -482,12 +482,12 @@ public class Calculator {
             } catch (org.apache.thrift.transport.TTransportException e) {
               _LOGGER.error("TTransportException writing to internal frame buffer", e);
               fb.close();
-            } catch (Exception e) {
+            } catch (java.lang.Exception e) {
               _LOGGER.error("Exception writing to internal frame buffer", e);
               onError(e);
             }
           }
-          public void onError(Exception e) {
+          public void onError(java.lang.Exception e) {
             byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
             org.apache.thrift.TSerializable msg;
             calculate_result result = new calculate_result();
@@ -506,7 +506,7 @@ public class Calculator {
             }
             try {
               fcall.sendResponse(fb,msg,msgType,seqid);
-            } catch (Exception ex) {
+            } catch (java.lang.Exception ex) {
               _LOGGER.error("Exception writing to internal frame buffer", ex);
               fb.close();
             }
@@ -518,7 +518,7 @@ public class Calculator {
         return false;
       }
 
-      public void start(I iface, calculate_args args, org.apache.thrift.async.AsyncMethodCallback<Integer> resultHandler) throws org.apache.thrift.TException {
+      public void start(I iface, calculate_args args, org.apache.thrift.async.AsyncMethodCallback<java.lang.Integer> resultHandler) throws org.apache.thrift.TException {
         iface.calculate(args.num1, args.num2,resultHandler);
       }
     }
@@ -537,7 +537,7 @@ public class Calculator {
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 ;
 
-      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+      private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
       static {
         for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
@@ -562,7 +562,7 @@ public class Calculator {
        */
       public static _Fields findByThriftIdOrThrow(int fieldId) {
         _Fields fields = findByThriftId(fieldId);
-        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        if (fields == null) throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
         return fields;
       }
 
@@ -570,14 +570,14 @@ public class Calculator {
        * Find the _Fields constant that matches name, or null if its not found.
        */
       @org.apache.thrift.annotation.Nullable
-      public static _Fields findByName(String name) {
+      public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
 
       private final short _thriftId;
-      private final String _fieldName;
+      private final java.lang.String _fieldName;
 
-      _Fields(short thriftId, String fieldName) {
+      _Fields(short thriftId, java.lang.String fieldName) {
         _thriftId = thriftId;
         _fieldName = fieldName;
       }
@@ -586,7 +586,7 @@ public class Calculator {
         return _thriftId;
       }
 
-      public String getFieldName() {
+      public java.lang.String getFieldName() {
         return _fieldName;
       }
     }
@@ -614,31 +614,31 @@ public class Calculator {
     public void clear() {
     }
 
-    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       }
     }
 
     @org.apache.thrift.annotation.Nullable
-    public Object getFieldValue(_Fields field) {
+    public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
     public boolean isSet(_Fields field) {
       if (field == null) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
 
       switch (field) {
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
       if (that instanceof ping_args)
@@ -687,8 +687,8 @@ public class Calculator {
     }
 
     @Override
-    public String toString() {
-      StringBuilder sb = new StringBuilder("ping_args(");
+    public java.lang.String toString() {
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("ping_args(");
       boolean first = true;
 
       sb.append(")");
@@ -708,7 +708,7 @@ public class Calculator {
       }
     }
 
-    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
       } catch (org.apache.thrift.TException te) {
@@ -791,7 +791,7 @@ public class Calculator {
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 ;
 
-      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+      private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
       static {
         for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
@@ -816,7 +816,7 @@ public class Calculator {
        */
       public static _Fields findByThriftIdOrThrow(int fieldId) {
         _Fields fields = findByThriftId(fieldId);
-        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        if (fields == null) throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
         return fields;
       }
 
@@ -824,14 +824,14 @@ public class Calculator {
        * Find the _Fields constant that matches name, or null if its not found.
        */
       @org.apache.thrift.annotation.Nullable
-      public static _Fields findByName(String name) {
+      public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
 
       private final short _thriftId;
-      private final String _fieldName;
+      private final java.lang.String _fieldName;
 
-      _Fields(short thriftId, String fieldName) {
+      _Fields(short thriftId, java.lang.String fieldName) {
         _thriftId = thriftId;
         _fieldName = fieldName;
       }
@@ -840,7 +840,7 @@ public class Calculator {
         return _thriftId;
       }
 
-      public String getFieldName() {
+      public java.lang.String getFieldName() {
         return _fieldName;
       }
     }
@@ -868,31 +868,31 @@ public class Calculator {
     public void clear() {
     }
 
-    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       }
     }
 
     @org.apache.thrift.annotation.Nullable
-    public Object getFieldValue(_Fields field) {
+    public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
     public boolean isSet(_Fields field) {
       if (field == null) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
 
       switch (field) {
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
       if (that instanceof ping_result)
@@ -941,8 +941,8 @@ public class Calculator {
       }
 
     @Override
-    public String toString() {
-      StringBuilder sb = new StringBuilder("ping_result(");
+    public java.lang.String toString() {
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("ping_result(");
       boolean first = true;
 
       sb.append(")");
@@ -962,7 +962,7 @@ public class Calculator {
       }
     }
 
-    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
       } catch (org.apache.thrift.TException te) {
@@ -1033,21 +1033,21 @@ public class Calculator {
     }
   }
 
-  public static class commParameters_args implements org.apache.thrift.TBase<commParameters_args, commParameters_args._Fields>, java.io.Serializable, Cloneable, Comparable<commParameters_args>   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("commParameters_args");
+  public static class comm_args implements org.apache.thrift.TBase<comm_args, comm_args._Fields>, java.io.Serializable, Cloneable, Comparable<comm_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("comm_args");
 
-    private static final org.apache.thrift.protocol.TField MESSAGE_FIELD_DESC = new org.apache.thrift.protocol.TField("message", org.apache.thrift.protocol.TType.STRING, (short)1);
+    private static final org.apache.thrift.protocol.TField MESSAGE_FIELD_DESC = new org.apache.thrift.protocol.TField("message", org.apache.thrift.protocol.TType.STRING, (short)-1);
 
-    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new commParameters_argsStandardSchemeFactory();
-    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new commParameters_argsTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new comm_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new comm_argsTupleSchemeFactory();
 
-    public @org.apache.thrift.annotation.Nullable String message; // required
+    public @org.apache.thrift.annotation.Nullable java.lang.String message; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      MESSAGE((short)1, "message");
+      MESSAGE((short)-1, "message");
 
-      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+      private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
       static {
         for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
@@ -1061,7 +1061,7 @@ public class Calculator {
       @org.apache.thrift.annotation.Nullable
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
-          case 1: // MESSAGE
+          case -1: // MESSAGE
             return MESSAGE;
           default:
             return null;
@@ -1074,7 +1074,7 @@ public class Calculator {
        */
       public static _Fields findByThriftIdOrThrow(int fieldId) {
         _Fields fields = findByThriftId(fieldId);
-        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        if (fields == null) throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
         return fields;
       }
 
@@ -1082,14 +1082,14 @@ public class Calculator {
        * Find the _Fields constant that matches name, or null if its not found.
        */
       @org.apache.thrift.annotation.Nullable
-      public static _Fields findByName(String name) {
+      public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
 
       private final short _thriftId;
-      private final String _fieldName;
+      private final java.lang.String _fieldName;
 
-      _Fields(short thriftId, String fieldName) {
+      _Fields(short thriftId, java.lang.String fieldName) {
         _thriftId = thriftId;
         _fieldName = fieldName;
       }
@@ -1098,7 +1098,7 @@ public class Calculator {
         return _thriftId;
       }
 
-      public String getFieldName() {
+      public java.lang.String getFieldName() {
         return _fieldName;
       }
     }
@@ -1110,14 +1110,14 @@ public class Calculator {
       tmpMap.put(_Fields.MESSAGE, new org.apache.thrift.meta_data.FieldMetaData("message", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(commParameters_args.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(comm_args.class, metaDataMap);
     }
 
-    public commParameters_args() {
+    public comm_args() {
     }
 
-    public commParameters_args(
-      String message)
+    public comm_args(
+      java.lang.String message)
     {
       this();
       this.message = message;
@@ -1126,14 +1126,14 @@ public class Calculator {
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public commParameters_args(commParameters_args other) {
+    public comm_args(comm_args other) {
       if (other.isSetMessage()) {
         this.message = other.message;
       }
     }
 
-    public commParameters_args deepCopy() {
-      return new commParameters_args(this);
+    public comm_args deepCopy() {
+      return new comm_args(this);
     }
 
     @Override
@@ -1142,11 +1142,11 @@ public class Calculator {
     }
 
     @org.apache.thrift.annotation.Nullable
-    public String getMessage() {
+    public java.lang.String getMessage() {
       return this.message;
     }
 
-    public commParameters_args setMessage(@org.apache.thrift.annotation.Nullable String message) {
+    public comm_args setMessage(@org.apache.thrift.annotation.Nullable java.lang.String message) {
       this.message = message;
       return this;
     }
@@ -1166,13 +1166,13 @@ public class Calculator {
       }
     }
 
-    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case MESSAGE:
         if (value == null) {
           unsetMessage();
         } else {
-          setMessage((String)value);
+          setMessage((java.lang.String)value);
         }
         break;
 
@@ -1180,38 +1180,38 @@ public class Calculator {
     }
 
     @org.apache.thrift.annotation.Nullable
-    public Object getFieldValue(_Fields field) {
+    public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case MESSAGE:
         return getMessage();
 
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
     public boolean isSet(_Fields field) {
       if (field == null) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
 
       switch (field) {
       case MESSAGE:
         return isSetMessage();
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
-      if (that instanceof commParameters_args)
-        return this.equals((commParameters_args)that);
+      if (that instanceof comm_args)
+        return this.equals((comm_args)that);
       return false;
     }
 
-    public boolean equals(commParameters_args that) {
+    public boolean equals(comm_args that) {
       if (that == null)
         return false;
       if (this == that)
@@ -1241,14 +1241,14 @@ public class Calculator {
     }
 
     @Override
-    public int compareTo(commParameters_args other) {
+    public int compareTo(comm_args other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
 
       int lastComparison = 0;
 
-      lastComparison = Boolean.valueOf(isSetMessage()).compareTo(other.isSetMessage());
+      lastComparison = java.lang.Boolean.valueOf(isSetMessage()).compareTo(other.isSetMessage());
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -1275,8 +1275,8 @@ public class Calculator {
     }
 
     @Override
-    public String toString() {
-      StringBuilder sb = new StringBuilder("commParameters_args(");
+    public java.lang.String toString() {
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("comm_args(");
       boolean first = true;
 
       sb.append("message:");
@@ -1303,7 +1303,7 @@ public class Calculator {
       }
     }
 
-    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
       } catch (org.apache.thrift.TException te) {
@@ -1311,15 +1311,15 @@ public class Calculator {
       }
     }
 
-    private static class commParameters_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public commParameters_argsStandardScheme getScheme() {
-        return new commParameters_argsStandardScheme();
+    private static class comm_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public comm_argsStandardScheme getScheme() {
+        return new comm_argsStandardScheme();
       }
     }
 
-    private static class commParameters_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<commParameters_args> {
+    private static class comm_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<comm_args> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, commParameters_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, comm_args struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -1329,7 +1329,7 @@ public class Calculator {
             break;
           }
           switch (schemeField.id) {
-            case 1: // MESSAGE
+            case -1: // MESSAGE
               if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
                 struct.message = iprot.readString();
                 struct.setMessageIsSet(true);
@@ -1348,7 +1348,7 @@ public class Calculator {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, commParameters_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, comm_args struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1363,16 +1363,16 @@ public class Calculator {
 
     }
 
-    private static class commParameters_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public commParameters_argsTupleScheme getScheme() {
-        return new commParameters_argsTupleScheme();
+    private static class comm_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public comm_argsTupleScheme getScheme() {
+        return new comm_argsTupleScheme();
       }
     }
 
-    private static class commParameters_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<commParameters_args> {
+    private static class comm_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<comm_args> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, commParameters_args struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, comm_args struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet optionals = new java.util.BitSet();
         if (struct.isSetMessage()) {
@@ -1385,7 +1385,7 @@ public class Calculator {
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, commParameters_args struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, comm_args struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
@@ -1400,19 +1400,19 @@ public class Calculator {
     }
   }
 
-  public static class commParameters_result implements org.apache.thrift.TBase<commParameters_result, commParameters_result._Fields>, java.io.Serializable, Cloneable, Comparable<commParameters_result>   {
-    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("commParameters_result");
+  public static class comm_result implements org.apache.thrift.TBase<comm_result, comm_result._Fields>, java.io.Serializable, Cloneable, Comparable<comm_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("comm_result");
 
 
-    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new commParameters_resultStandardSchemeFactory();
-    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new commParameters_resultTupleSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new comm_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new comm_resultTupleSchemeFactory();
 
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 ;
 
-      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+      private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
       static {
         for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
@@ -1437,7 +1437,7 @@ public class Calculator {
        */
       public static _Fields findByThriftIdOrThrow(int fieldId) {
         _Fields fields = findByThriftId(fieldId);
-        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        if (fields == null) throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
         return fields;
       }
 
@@ -1445,14 +1445,14 @@ public class Calculator {
        * Find the _Fields constant that matches name, or null if its not found.
        */
       @org.apache.thrift.annotation.Nullable
-      public static _Fields findByName(String name) {
+      public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
 
       private final short _thriftId;
-      private final String _fieldName;
+      private final java.lang.String _fieldName;
 
-      _Fields(short thriftId, String fieldName) {
+      _Fields(short thriftId, java.lang.String fieldName) {
         _thriftId = thriftId;
         _fieldName = fieldName;
       }
@@ -1461,7 +1461,7 @@ public class Calculator {
         return _thriftId;
       }
 
-      public String getFieldName() {
+      public java.lang.String getFieldName() {
         return _fieldName;
       }
     }
@@ -1469,59 +1469,59 @@ public class Calculator {
     static {
       java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(commParameters_result.class, metaDataMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(comm_result.class, metaDataMap);
     }
 
-    public commParameters_result() {
+    public comm_result() {
     }
 
     /**
      * Performs a deep copy on <i>other</i>.
      */
-    public commParameters_result(commParameters_result other) {
+    public comm_result(comm_result other) {
     }
 
-    public commParameters_result deepCopy() {
-      return new commParameters_result(this);
+    public comm_result deepCopy() {
+      return new comm_result(this);
     }
 
     @Override
     public void clear() {
     }
 
-    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       }
     }
 
     @org.apache.thrift.annotation.Nullable
-    public Object getFieldValue(_Fields field) {
+    public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
     public boolean isSet(_Fields field) {
       if (field == null) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
 
       switch (field) {
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
-      if (that instanceof commParameters_result)
-        return this.equals((commParameters_result)that);
+      if (that instanceof comm_result)
+        return this.equals((comm_result)that);
       return false;
     }
 
-    public boolean equals(commParameters_result that) {
+    public boolean equals(comm_result that) {
       if (that == null)
         return false;
       if (this == that)
@@ -1538,7 +1538,7 @@ public class Calculator {
     }
 
     @Override
-    public int compareTo(commParameters_result other) {
+    public int compareTo(comm_result other) {
       if (!getClass().equals(other.getClass())) {
         return getClass().getName().compareTo(other.getClass().getName());
       }
@@ -1562,8 +1562,8 @@ public class Calculator {
       }
 
     @Override
-    public String toString() {
-      StringBuilder sb = new StringBuilder("commParameters_result(");
+    public java.lang.String toString() {
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("comm_result(");
       boolean first = true;
 
       sb.append(")");
@@ -1583,7 +1583,7 @@ public class Calculator {
       }
     }
 
-    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
         read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
       } catch (org.apache.thrift.TException te) {
@@ -1591,15 +1591,15 @@ public class Calculator {
       }
     }
 
-    private static class commParameters_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public commParameters_resultStandardScheme getScheme() {
-        return new commParameters_resultStandardScheme();
+    private static class comm_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public comm_resultStandardScheme getScheme() {
+        return new comm_resultStandardScheme();
       }
     }
 
-    private static class commParameters_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<commParameters_result> {
+    private static class comm_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<comm_result> {
 
-      public void read(org.apache.thrift.protocol.TProtocol iprot, commParameters_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol iprot, comm_result struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TField schemeField;
         iprot.readStructBegin();
         while (true)
@@ -1620,7 +1620,7 @@ public class Calculator {
         struct.validate();
       }
 
-      public void write(org.apache.thrift.protocol.TProtocol oprot, commParameters_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol oprot, comm_result struct) throws org.apache.thrift.TException {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
@@ -1630,21 +1630,21 @@ public class Calculator {
 
     }
 
-    private static class commParameters_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-      public commParameters_resultTupleScheme getScheme() {
-        return new commParameters_resultTupleScheme();
+    private static class comm_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public comm_resultTupleScheme getScheme() {
+        return new comm_resultTupleScheme();
       }
     }
 
-    private static class commParameters_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<commParameters_result> {
+    private static class comm_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<comm_result> {
 
       @Override
-      public void write(org.apache.thrift.protocol.TProtocol prot, commParameters_result struct) throws org.apache.thrift.TException {
+      public void write(org.apache.thrift.protocol.TProtocol prot, comm_result struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
       }
 
       @Override
-      public void read(org.apache.thrift.protocol.TProtocol prot, commParameters_result struct) throws org.apache.thrift.TException {
+      public void read(org.apache.thrift.protocol.TProtocol prot, comm_result struct) throws org.apache.thrift.TException {
         org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
       }
     }
@@ -1671,7 +1671,7 @@ public class Calculator {
       NUM1((short)1, "num1"),
       NUM2((short)2, "num2");
 
-      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+      private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
       static {
         for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
@@ -1700,7 +1700,7 @@ public class Calculator {
        */
       public static _Fields findByThriftIdOrThrow(int fieldId) {
         _Fields fields = findByThriftId(fieldId);
-        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        if (fields == null) throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
         return fields;
       }
 
@@ -1708,14 +1708,14 @@ public class Calculator {
        * Find the _Fields constant that matches name, or null if its not found.
        */
       @org.apache.thrift.annotation.Nullable
-      public static _Fields findByName(String name) {
+      public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
 
       private final short _thriftId;
-      private final String _fieldName;
+      private final java.lang.String _fieldName;
 
-      _Fields(short thriftId, String fieldName) {
+      _Fields(short thriftId, java.lang.String fieldName) {
         _thriftId = thriftId;
         _fieldName = fieldName;
       }
@@ -1724,7 +1724,7 @@ public class Calculator {
         return _thriftId;
       }
 
-      public String getFieldName() {
+      public java.lang.String getFieldName() {
         return _fieldName;
       }
     }
@@ -1825,13 +1825,13 @@ public class Calculator {
       __isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __NUM2_ISSET_ID, value);
     }
 
-    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case NUM1:
         if (value == null) {
           unsetNum1();
         } else {
-          setNum1((Integer)value);
+          setNum1((java.lang.Integer)value);
         }
         break;
 
@@ -1839,7 +1839,7 @@ public class Calculator {
         if (value == null) {
           unsetNum2();
         } else {
-          setNum2((Integer)value);
+          setNum2((java.lang.Integer)value);
         }
         break;
 
@@ -1847,7 +1847,7 @@ public class Calculator {
     }
 
     @org.apache.thrift.annotation.Nullable
-    public Object getFieldValue(_Fields field) {
+    public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case NUM1:
         return getNum1();
@@ -1856,13 +1856,13 @@ public class Calculator {
         return getNum2();
 
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
     public boolean isSet(_Fields field) {
       if (field == null) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
 
       switch (field) {
@@ -1871,11 +1871,11 @@ public class Calculator {
       case NUM2:
         return isSetNum2();
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
       if (that instanceof calculate_args)
@@ -1929,7 +1929,7 @@ public class Calculator {
 
       int lastComparison = 0;
 
-      lastComparison = Boolean.valueOf(isSetNum1()).compareTo(other.isSetNum1());
+      lastComparison = java.lang.Boolean.valueOf(isSetNum1()).compareTo(other.isSetNum1());
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -1939,7 +1939,7 @@ public class Calculator {
           return lastComparison;
         }
       }
-      lastComparison = Boolean.valueOf(isSetNum2()).compareTo(other.isSetNum2());
+      lastComparison = java.lang.Boolean.valueOf(isSetNum2()).compareTo(other.isSetNum2());
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -1966,8 +1966,8 @@ public class Calculator {
     }
 
     @Override
-    public String toString() {
-      StringBuilder sb = new StringBuilder("calculate_args(");
+    public java.lang.String toString() {
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("calculate_args(");
       boolean first = true;
 
       sb.append("num1:");
@@ -1994,7 +1994,7 @@ public class Calculator {
       }
     }
 
-    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
@@ -2126,7 +2126,7 @@ public class Calculator {
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
       SUCCESS((short)0, "success");
 
-      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+      private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
       static {
         for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
@@ -2153,7 +2153,7 @@ public class Calculator {
        */
       public static _Fields findByThriftIdOrThrow(int fieldId) {
         _Fields fields = findByThriftId(fieldId);
-        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        if (fields == null) throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
         return fields;
       }
 
@@ -2161,14 +2161,14 @@ public class Calculator {
        * Find the _Fields constant that matches name, or null if its not found.
        */
       @org.apache.thrift.annotation.Nullable
-      public static _Fields findByName(String name) {
+      public static _Fields findByName(java.lang.String name) {
         return byName.get(name);
       }
 
       private final short _thriftId;
-      private final String _fieldName;
+      private final java.lang.String _fieldName;
 
-      _Fields(short thriftId, String fieldName) {
+      _Fields(short thriftId, java.lang.String fieldName) {
         _thriftId = thriftId;
         _fieldName = fieldName;
       }
@@ -2177,7 +2177,7 @@ public class Calculator {
         return _thriftId;
       }
 
-      public String getFieldName() {
+      public java.lang.String getFieldName() {
         return _fieldName;
       }
     }
@@ -2246,13 +2246,13 @@ public class Calculator {
       __isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __SUCCESS_ISSET_ID, value);
     }
 
-    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable Object value) {
+    public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
       switch (field) {
       case SUCCESS:
         if (value == null) {
           unsetSuccess();
         } else {
-          setSuccess((Integer)value);
+          setSuccess((java.lang.Integer)value);
         }
         break;
 
@@ -2260,30 +2260,30 @@ public class Calculator {
     }
 
     @org.apache.thrift.annotation.Nullable
-    public Object getFieldValue(_Fields field) {
+    public java.lang.Object getFieldValue(_Fields field) {
       switch (field) {
       case SUCCESS:
         return getSuccess();
 
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
     public boolean isSet(_Fields field) {
       if (field == null) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
 
       switch (field) {
       case SUCCESS:
         return isSetSuccess();
       }
-      throw new IllegalStateException();
+      throw new java.lang.IllegalStateException();
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(java.lang.Object that) {
       if (that == null)
         return false;
       if (that instanceof calculate_result)
@@ -2326,7 +2326,7 @@ public class Calculator {
 
       int lastComparison = 0;
 
-      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+      lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -2353,8 +2353,8 @@ public class Calculator {
       }
 
     @Override
-    public String toString() {
-      StringBuilder sb = new StringBuilder("calculate_result(");
+    public java.lang.String toString() {
+      java.lang.StringBuilder sb = new java.lang.StringBuilder("calculate_result(");
       boolean first = true;
 
       sb.append("success:");
@@ -2377,7 +2377,7 @@ public class Calculator {
       }
     }
 
-    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
       try {
         // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
         __isset_bitfield = 0;
