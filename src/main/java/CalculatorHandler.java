@@ -7,6 +7,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class CalculatorHandler implements Calculator.Iface {
+
+    private String apiToken;
+
+    private String userId;
+
+    CalculatorHandler() {
+        this.apiToken = System.getenv("PUSH_API_TOKEN");
+        this.userId = System.getenv("PUSH_USER_ID");
+    }
+
     @Override
     public void ping() {
         System.out.println("ping()");
@@ -19,6 +29,11 @@ public class CalculatorHandler implements Calculator.Iface {
         int status = runScript();
 
         System.out.println("status: " + status);
+
+        Notify.builderWithApiToken(apiToken)
+                .setUserId(userId)
+                .setMessage(msg)
+                .push();
     }
 
     @Override
@@ -65,8 +80,4 @@ public class CalculatorHandler implements Calculator.Iface {
         }
         return exitValue;
     }
-
-
-
-
 }
