@@ -8,11 +8,17 @@ import java.io.IOException;
 
 public class CalculatorHandler implements Calculator.Iface {
 
-    private String apiToken;
+    private final String dirName;
+    private final String appName;
+    private final String apiToken;
+    private final String userId;
 
-    private String userId;
 
-    CalculatorHandler() {
+    CalculatorHandler(String dirName, String appName) {
+//        this.dirName = "/Users/shiqi/Desktop/";
+//        this.appName = "application";
+        this.dirName = dirName;
+        this.appName = appName;
         this.apiToken = System.getenv("PUSH_API_TOKEN");
         this.userId = System.getenv("PUSH_USER_ID");
     }
@@ -45,7 +51,7 @@ public class CalculatorHandler implements Calculator.Iface {
 
     private void saveParameters(String msg) {
         try {
-            File file = new File("/Users/shiqi/Desktop/parameter.xml");
+            File file = new File(dirName + "parameters.xml");
             if(!file.exists()) {
                 file.createNewFile();
             }
@@ -58,8 +64,8 @@ public class CalculatorHandler implements Calculator.Iface {
         }
     }
 
-    private static int runScript() {
-        String[] cmdarray = {"/Users/shiqi/Desktop/application", "parameters.xml", "data"};
+    private int runScript() {
+        String[] cmdarray = {dirName + appName, "parameters.xml", "data"};
 
         int exitValue = -1;
         try {

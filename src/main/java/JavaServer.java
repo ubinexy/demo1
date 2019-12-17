@@ -12,7 +12,7 @@ public class JavaServer {
 
     public static void main(String [] args) {
         try {
-            handler = new CalculatorHandler();
+            handler = new CalculatorHandler(args[0], args[1]);
             processor = new Calculator.Processor(handler);
 
             Runnable simple = new Runnable() {
@@ -24,7 +24,6 @@ public class JavaServer {
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public static void simple(Calculator.Processor processer) {
