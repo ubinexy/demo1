@@ -13,6 +13,13 @@ sourceCompatibility = 1.8
 
 mainClassName = 'JavaClient'
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'JavaClient'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
 repositories {
     mavenCentral()
 }
