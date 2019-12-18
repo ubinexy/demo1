@@ -1,0 +1,4 @@
+<Field>
+    <server_ip attr="string">localhost</server_ip>
+    <server_port attr="int">9090</server_port>
+</Field>

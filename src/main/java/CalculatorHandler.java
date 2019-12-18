@@ -36,10 +36,17 @@ public class CalculatorHandler implements Calculator.Iface {
 
         System.out.println("status: " + status);
 
-        Notify.builderWithApiToken(apiToken)
-                .setUserId(userId)
-                .setMessage(msg)
-                .push();
+        if(status == 0) {
+            Notify.builderWithApiToken(apiToken)
+                    .setUserId(userId)
+                    .setMessage("job finished")
+                    .push();
+        } else {
+            Notify.builderWithApiToken(apiToken)
+                    .setUserId(userId)
+                    .setMessage("job failed [" + status + "]")
+                    .push();
+        }
     }
 
     @Override
@@ -65,7 +72,7 @@ public class CalculatorHandler implements Calculator.Iface {
     }
 
     private int runScript() {
-        String[] cmdarray = {dirName + appName, "parameters.xml", "data"};
+        String[] cmdarray = {dirName + appName, dirName + "parameters.xml", "data"};
 
         int exitValue = -1;
         try {
