@@ -7,6 +7,6 @@ exception InvalidOperation {
 
 service Calculator {
 void ping(),
-void commParameters(1: string message),
+oneway void commParameters(1: string message),
 i32 calculate(1:i32 num1, 2:i32 num2)
 }
