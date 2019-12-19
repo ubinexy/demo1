@@ -1,10 +1,7 @@
 import org.apache.thrift.TException;
 import tutorial.Calculator;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class CalculatorHandler implements Calculator.Iface {
 
@@ -30,6 +27,8 @@ public class CalculatorHandler implements Calculator.Iface {
 
     @Override
     public void commParameters(String msg) {
+        System.out.println("commParameters()");
+
         saveParameters(msg);
 
         int status = runScript();
@@ -51,6 +50,8 @@ public class CalculatorHandler implements Calculator.Iface {
 
     @Override
     public int calculate(int num1, int num2) {
+        System.out.println("calculate()");
+
         return num1 + num2;
     }
 
@@ -72,12 +73,28 @@ public class CalculatorHandler implements Calculator.Iface {
     }
 
     private int runScript() {
-        String[] cmdarray = {dirName + appName, dirName + "parameters.xml", "data"};
+
 
         int exitValue = -1;
         try {
-            Runtime runtime = Runtime.getRuntime();
-            Process process = runtime.exec(cmdarray);
+//        String[] cmdarray = {dirName + appName, dirName + "parameters.xml", "data"};
+//        Runtime runtime = Runtime.getRuntime();
+//        Process process = runtime.exec(cmdarray);
+            ProcessBuilder pb =new ProcessBuilder(dirName + appName, dirName + "parameters.xml", "data");
+            pb.redirectErrorStream(true);
+            Process process = pb.start();
+
+//            InputStream is = process.getInputStream();
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+//            String line=null;
+//            while((line=reader.readLine())!=null){
+//                System.out.println(line);
+//            }
+
+//            SequenceInputStream sis=new SequenceInputStream(process.getErrorStream(), process.getInputStream());
+            StreamGobbler mixGobbler = new StreamGobbler(process.getInputStream(), "");
+            mixGobbler.start();
+
             exitValue = process.waitFor();
             if( 0 == exitValue ) {
                 System.out.println("execute script success.");

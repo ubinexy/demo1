@@ -1,6 +1,3 @@
-import Xml.Node;
-import Xml.Parser;
-import Xml.Visitor;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
@@ -10,6 +7,8 @@ import org.apache.thrift.transport.TTransport;
 import java.io.*;
 
 import tutorial.Calculator;
+import Xml.Parser;
+import Xml.Visitor;
 
 public class JavaClient {
 
@@ -40,7 +39,10 @@ public class JavaClient {
                 Visitor v = new Visitor();
                 v.visit(p.getNode(), "");
                 send(v.getServerIP(), v.getServerPort(), content);
+                System.out.println("running...");
                 return;
+            } else {
+                System.out.println("parse error");
             }
             System.exit(2);
         }
